@@ -1,0 +1,45 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model Product {
+    id             Int          @id @default(autoincrement()) @db.UnsignedInt
+    name           String
+    description    String // text
+    price          Int          @db.UnsignedInt // min 1
+    on_sale        Boolean?
+    images         Json         @default("{}")
+    stock_status   String // min 0
+    stock_quantity Int          @db.UnsignedInt
+    order_items    OrderItem[]
+}
+
+model Order {
+    id                  Int          @id @default(autoincrement()) @db.UnsignedInt
+    customer_first_name String
+    customer_last_anem  String
+    customer_address    String
+    customer_postcode   String
+    customer_city       String
+    customer_email      String // email
+    customer_phone      String?
+    order_total         Int // min 1
+    order_items         OrderItem[]
+}
+
+model OrderItem {
+    id         Int     @id @default(autoincrement()) @db.UnsignedInt
+	order_id   Int     @db.UnsignedInt
+    product_id Int     @db.UnsignedInt // min 1
+    qty        Int     @db.UnsignedInt // min 1
+    item_price Int     @db.UnsignedInt // min 1
+    item_total Int     @db.UnsignedInt // min 1
+    order      Order   @relation(fields: [order_id], references: [id])
+    product    Product @relation(fields: [product_id], references: [id])
+
+}
