@@ -8,19 +8,19 @@ datasource db {
 }
 
 model Product {
-    id             Int          @id @default(autoincrement()) @db.UnsignedInt
+    id             Int         @id @default(autoincrement()) @db.UnsignedInt
     name           String
     description    String // text
-    price          Int          @db.UnsignedInt // min 1
+    price          Int         @db.UnsignedInt // min 1
     on_sale        Boolean?
-    images         Json         @default("{}")
+    images         Json        @default("{}")
     stock_status   String // min 0
-    stock_quantity Int          @db.UnsignedInt
+    stock_quantity Int         @db.UnsignedInt
     order_items    OrderItem[]
 }
 
 model Order {
-    id                  Int          @id @default(autoincrement()) @db.UnsignedInt
+    id                  Int         @id @default(autoincrement()) @db.UnsignedInt
     customer_first_name String
     customer_last_anem  String
     customer_address    String
@@ -34,12 +34,11 @@ model Order {
 
 model OrderItem {
     id         Int     @id @default(autoincrement()) @db.UnsignedInt
-	order_id   Int     @db.UnsignedInt
+    order_id   Int     @db.UnsignedInt
     product_id Int     @db.UnsignedInt // min 1
     qty        Int     @db.UnsignedInt // min 1
     item_price Int     @db.UnsignedInt // min 1
     item_total Int     @db.UnsignedInt // min 1
     order      Order   @relation(fields: [order_id], references: [id])
     product    Product @relation(fields: [product_id], references: [id])
-
 }
