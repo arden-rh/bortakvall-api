@@ -10,7 +10,7 @@ const router = express.Router()
  */
 router.get('/', (req, res) => {
 	res.send({
-		message: "You server is live",
+		message: "Your server is live",
 	})
 })
 
