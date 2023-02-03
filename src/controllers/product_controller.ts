@@ -13,6 +13,10 @@ const debug = Debug('prisma-boilerplate:I_AM_LAZY_AND_HAVE_NOT_CHANGED_THIS_😛
  * Get all products
  */
 export const index = async (req: Request, res: Response) => {
+    
+    res.send({
+		message: "This is the products page",
+	})
 }
 
 /**
