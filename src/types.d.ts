@@ -31,7 +31,7 @@ export type CreateOrderData = {
     order_item: [],
 }
 
-/* Create User Data Type */
+/* Create Order Item Data Type */
 export type CreateOrderItemData = {
 	name: string,
 	email: string,
