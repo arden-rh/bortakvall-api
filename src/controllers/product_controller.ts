@@ -5,18 +5,30 @@ import Debug from 'debug'
 import { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 import prisma from '../prisma'
+import { getAllProducts } from '../services/product_service'
 
 // Create a new debug instance
-const debug = Debug('prisma-boilerplate:I_AM_LAZY_AND_HAVE_NOT_CHANGED_THIS_😛')
+const debug = Debug('prisma-boilerplate:product_controller')
 
 /**
  * Get all products
  */
 export const index = async (req: Request, res: Response) => {
-    
-    res.send({
-		message: "This is the products page",
-	})
+
+	try {
+		const books = getAllProducts()
+
+		res.send({
+			status: "success",
+			data: books
+		})
+	} catch (err) {
+		debug("Error thrown when finding products", err)
+		res.status(500).send({
+			status: "error",
+			message: "Something went wrong"
+		})
+	}
 }
 
 /**
