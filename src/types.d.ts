@@ -27,13 +27,13 @@ export type CreateOrderData = {
     customer_city: string,
     customer_email: string,
     customer_phone?: string,
-    order_total: number,
-    order_item: [],
+    order_total: number
 }
 
 /* Create Order Item Data Type */
 export type CreateOrderItemData = {
-	name: string,
-	email: string,
-	password: string
+	product_id: number,
+	qty: number,
+	item_price: number,
+    item_total: number
 }

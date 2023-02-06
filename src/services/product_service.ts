@@ -1,4 +1,4 @@
-/** Book Service **/
+/** Product Service **/
 
 import prisma from "../prisma"
 import { CreateProductData } from "../types"
@@ -33,15 +33,3 @@ export const getProductById = async (id : number) => {
 export const createProduct = async (data : CreateProductData) => {
 	return await prisma.product.create({data})
 }
-
-/**
- * Delete a book
- * @param id book
- */
-/* export const deleteBook = async (id : number) => {
-
-	return await prisma.book.delete({
-		where: { id }
-	})
-
-} */

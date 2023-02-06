@@ -22,7 +22,7 @@ model Product {
 model Order {
     id                  Int         @id @default(autoincrement()) @db.UnsignedInt
     customer_first_name String
-    customer_last_anem  String
+    customer_last_name  String
     customer_address    String
     customer_postcode   String
     customer_city       String

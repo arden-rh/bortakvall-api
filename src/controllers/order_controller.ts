@@ -1,18 +1,35 @@
 /**
- * Controller Template
+ * Order Controller
  */
 import Debug from 'debug'
 import { Request, Response } from 'express'
-import { validationResult } from 'express-validator'
-import prisma from '../prisma'
+import { matchedData, validationResult } from 'express-validator'
+import { getAllOrders, createOrder } from '../services/order_service'
 
 // Create a new debug instance
-const debug = Debug('prisma-boilerplate:I_AM_LAZY_AND_HAVE_NOT_CHANGED_THIS_😛')
+const debug = Debug('uppgift-01:order_controller')
 
 /**
  * Get all orders
  */
 export const index = async (req: Request, res: Response) => {
+
+    try {
+		const orders = await getAllOrders()
+
+		res.status(200).send({
+			status: "success",
+			data: orders
+		})
+
+	} catch (err) {
+		debug("Error thrown when finding orders", err)
+		res.status(500).send({
+			status: "error",
+			message: "Something went wrong"
+		})
+	}
+
 }
 
 /**
@@ -22,7 +39,42 @@ export const show = async (req: Request, res: Response) => {
 }
 
 /**
- * Create a order
+ * Create an order
  */
 export const store = async (req: Request, res: Response) => {
+
+    const validationErrors = validationResult(req)
+
+    if (!validationErrors.isEmpty()) {
+		return res.status(400).send({
+			status: "fail",
+			data: validationErrors.array()
+		});
+	}
+
+    const data = matchedData(req)
+
+    try {
+        const order = await createOrder({ 
+            customer_first_name: data.customer_first_name,
+            customer_last_name: data.customer_last_name,
+            customer_address: data.customer_address,
+            customer_postcode: data.customer_postcode,
+            customer_city: data.customer_city,
+            customer_email: data.customer_email,
+            customer_phone: data.customer_phone,
+            order_total: data.order_total
+        })
+
+        res.status(201).send({
+            status: "success",
+            data: order
+        })
+    } catch (err) {
+		debug("Error thrown when trying to create an order: %o", err)
+		res.status(500).send({
+			status: "error",
+			message: "Something went wrong"
+		})
+    }
 }

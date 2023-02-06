@@ -1,5 +1,5 @@
 /**
- * Controller Template
+ * Product Controller
  */
 import Debug from 'debug'
 import { Request, Response } from 'express'

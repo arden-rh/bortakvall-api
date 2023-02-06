@@ -7,7 +7,7 @@ export const createProductRules = [
 	body('description').isString(),
 	body('price').isInt({ min : 1}),
 	body('on_sale').optional().isBoolean(),
-	body('images').isObject(), //isJSON
+	body('images').isObject(), 
 	body('stock_status').isString(),
 	body('stock_quantity').isInt(),
 ]
