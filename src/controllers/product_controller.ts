@@ -7,7 +7,7 @@ import { matchedData, validationResult } from 'express-validator'
 import { createProduct, getAllProducts } from '../services/product_service'
 
 // Create a new debug instance
-const debug = Debug('prisma-boilerplate:product_controller')
+const debug = Debug('uppgift-01:product_controller')
 
 /**
  * Get all products
@@ -15,12 +15,13 @@ const debug = Debug('prisma-boilerplate:product_controller')
 export const index = async (req: Request, res: Response) => {
 
 	try {
-		const products = getAllProducts()
+		const products = await getAllProducts()
 
 		res.status(200).send({
 			status: "success",
 			data: products
 		})
+
 	} catch (err) {
 		debug("Error thrown when finding products", err)
 		res.status(500).send({
@@ -53,7 +54,7 @@ export const store = async (req: Request, res: Response) => {
     const data = matchedData(req)
 
     try {
-        const product = createProduct({ 
+        const product = await createProduct({ 
             name: data.name,
             description: data.description,
             price: data.price,

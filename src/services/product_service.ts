@@ -4,23 +4,6 @@ import prisma from "../prisma"
 import { CreateProductData } from "../types"
 
 /**
- * Get a single book
- * @param id Book Id
- */
-/* export const getBookById = async (id : number) => {
-
-	return await prisma.book.findUniqueOrThrow({
-		where: {
-			id
-		},
-		include: {
-			authors: true,
-			publisher: true
-		}
-	})
-} */
-
-/**
  * Get all products
  */
 export const getAllProducts = async () => {
