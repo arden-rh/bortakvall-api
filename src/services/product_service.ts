@@ -13,6 +13,19 @@ export const getAllProducts = async () => {
 }
 
 /**
+ * Get a single product by id
+ * @param id Product Id
+ */
+export const getProductById = async (id : number) => {
+
+	return await prisma.product.findUniqueOrThrow({
+		where: {
+			id
+		}
+	})
+}
+
+/**
  * Create a product
  *
  * @param data Data to create a new product

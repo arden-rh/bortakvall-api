@@ -4,7 +4,7 @@
 import Debug from 'debug'
 import { Request, Response } from 'express'
 import { matchedData, validationResult } from 'express-validator'
-import { createProduct, getAllProducts } from '../services/product_service'
+import { createProduct, getAllProducts, getProductById } from '../services/product_service'
 
 // Create a new debug instance
 const debug = Debug('uppgift-01:product_controller')
@@ -35,6 +35,23 @@ export const index = async (req: Request, res: Response) => {
  * Get a single product
  */
 export const show = async (req: Request, res: Response) => {
+
+	const productId = Number(req.params.productId)
+
+	try {
+
+		const product = await getProductById(productId)
+
+		res.status(200).send({
+			status: "success",
+			data: product
+		})
+	} catch (err) {
+		debug("Error thrown when finding a product with id %o: %o", req.params.productId, err)
+		res.status(404).send({ status: "fail", data: { message: "No such product exists" } })
+	}
+
+
 }
 
 /**
