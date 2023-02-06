@@ -2,8 +2,8 @@
  * Router Template
  */
 import express from 'express'
-import { body } from 'express-validator'
 import { index, show, store } from '../controllers/product_controller'
+import { createProductRules } from '../validations/product_validation'
 const router = express.Router()
 
 /**
@@ -19,6 +19,6 @@ router.get('/:productId', show)
 /**
  * POST /products
  */
-router.post('/', [], store)
+router.post('/', createProductRules, store)
 
 export default router

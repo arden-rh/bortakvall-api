@@ -21,7 +21,7 @@ import { CreateProductData } from "../types"
 } */
 
 /**
- * Get all books
+ * Get all products
  */
 export const getAllProducts = async () => {
 
@@ -30,13 +30,13 @@ export const getAllProducts = async () => {
 }
 
 /**
- * Create a book
+ * Create a product
  *
- * @param data Data to create a new author
+ * @param data Data to create a new product
  */
-/* export const createBook = async (data : CreateBookData) => {
-	return await prisma.book.create({data})
-} */
+export const createProduct = async (data : CreateProductData) => {
+	return await prisma.product.create({data})
+}
 
 /**
  * Delete a book

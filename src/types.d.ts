@@ -7,9 +7,9 @@
 /* Create Product Data Type */
 export type CreateProductData = {
 	name: string,
-    description: Text,
+    description: string,
     price: number,
-    on_sale: boolean?,
+    on_sale?: boolean,
     images: {
         thumbnail: string,
         large: string
