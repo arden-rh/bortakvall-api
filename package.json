@@ -1,12 +1,12 @@
 {
-  "name": "06-prisma-boilerplate",
+  "name": "uppgift-01",
   "version": "1.0.0",
   "description": "",
   "main": "build/server.js",
   "scripts": {
     "build": "tsc && npx prisma migrate deploy",
-    "dev": "cross-env DEBUG=prisma-boilerplate:* nodemon server.ts",
-    "debug": "cross-env DEBUG=prisma-books:* nodemon --inspect server.ts",
+    "dev": "cross-env DEBUG=uppgift-01:* nodemon server.ts",
+    "debug": "cross-env DEBUG=uppgift-01:* nodemon --inspect server.ts",
     "run": "ts-node server.ts",
     "start": "node build/server.js"
   },
