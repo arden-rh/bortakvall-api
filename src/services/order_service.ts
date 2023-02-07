@@ -2,7 +2,7 @@
 
 import prisma from "../prisma"
 import { CreateOrderData } from "../types"
-import { Request, Response } from 'express'
+import { createOrderItems } from "./orderItem_service"
 
 /**
  * Get all orders

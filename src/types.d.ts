@@ -2,6 +2,8 @@
  * Type Definitions
  */
 
+import { OrderItem } from "@prisma/client"
+
 /** TYPES **/
 
 /* Create Product Data Type */
@@ -28,6 +30,7 @@ export type CreateOrderData = {
     customer_email: string,
     customer_phone?: string,
     order_total: number
+    order_items: any
 }
 
 /* Create Order Item Data Type */
