@@ -98,11 +98,11 @@ export const store = async (req: Request, res: Response) => {
             })))
         }
     
-        const items = await createOrderItems(data.order_items)
+        const orderItems = await createOrderItems(data.order_items)
 
-        const orderItems = {items : items}
+        const items = {items : orderItems}
 
-        order = {...order, ...orderItems}
+        order = {...order, ...items}
 
         res.status(201).send({
             status: "success",

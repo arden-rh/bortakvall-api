@@ -1,5 +1,5 @@
 /**
- * Router Template
+ * Product Router
  */
 import express from 'express'
 import { index, show, store } from '../controllers/product_controller'

@@ -1,5 +1,5 @@
 /**
- * Router Template
+ * Order Router
  */
 import express from 'express'
 import { index, show, store } from '../controllers/order_controller'
