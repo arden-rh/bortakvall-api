@@ -1,7 +1,10 @@
-/** Order Validation Rules **/
+/** Order Validation **/
 
 import { body } from 'express-validator'
 
+/**
+ * Order validation rules
+ */
 export const createOrderRules = [
 	body('customer_first_name').isString(),
 	body('customer_last_name').isString(),
@@ -13,12 +16,5 @@ export const createOrderRules = [
 	body('order_total').isInt({ min: 1 }),
 	body('order_items').isArray()
 ]
-
-/* export const createOrderItemRules = [
-	body('product_id').isInt({ min : 1}),
-	body('qty').isInt({ min : 1}),
-	body('item_price').isInt({ min : 1}),
-	body('item_total').isInt({ min :1})
-] */
 
 

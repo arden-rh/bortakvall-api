@@ -1,6 +1,5 @@
-/**
- * Product Router
- */
+/** Product Router **/
+
 import express from 'express'
 import { index, show, store } from '../controllers/product_controller'
 import { createProductRules } from '../validations/product_validation'

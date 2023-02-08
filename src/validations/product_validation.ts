@@ -1,7 +1,10 @@
-/** Product Validation Rules **/
+/** Product Validation **/
 
 import { body } from 'express-validator'
 
+/**
+ * Order validation rules
+ */
 export const createProductRules = [
 	body('name').isString(),
 	body('description').isString(),

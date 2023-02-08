@@ -1,6 +1,5 @@
-/**
- * Order Controller
- */
+/** Order Controller **/
+
 import Debug from 'debug'
 import prisma from '../prisma'
 import { Request, Response } from 'express'

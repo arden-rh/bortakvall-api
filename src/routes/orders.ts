@@ -1,6 +1,5 @@
-/**
- * Order Router
- */
+/** Order Router **/
+
 import express from 'express'
 import { index, show, store } from '../controllers/order_controller'
 import { createOrderRules } from '../validations/order_validation'

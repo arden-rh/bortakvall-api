@@ -1,12 +1,8 @@
+/** Type Definitions **/
+
 /**
- * Type Definitions
- */
-
-import { OrderItem } from "@prisma/client"
-
-/** TYPES **/
-
-/* Create Product Data Type */
+ * Create Product Data Type
+*/
 export type CreateProductData = {
 	name: string,
     description: string,
@@ -20,7 +16,9 @@ export type CreateProductData = {
     stock_quantity: number
 }
 
-/* Create Order Data Type */
+/**
+ * Create Order Data Type 
+ */
 export type CreateOrderData = {
 	customer_first_name: string,
 	customer_last_name: string,
@@ -32,7 +30,9 @@ export type CreateOrderData = {
     order_total: number
 }
 
-/* Create Order Item Data Type */
+/**
+ * Create Order Item Data Type 
+ */
 export type CreateOrderItemData = {
 	product_id: number,
 	qty: number,
