@@ -9,7 +9,7 @@ export const createProductRules = [
 	body('on_sale').optional().isBoolean(),
 	body('images').isObject(), 
 	body('stock_status').isString(),
-	body('stock_quantity').isInt(),
+	body('stock_quantity').isInt({ min : 0})
 ]
 
 

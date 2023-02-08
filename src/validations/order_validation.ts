@@ -11,7 +11,7 @@ export const createOrderRules = [
 	body('customer_email').isEmail().withMessage('You need to write a valid email address.'),
 	body('customer_phone').optional().isString(),
 	body('order_total').isInt({ min: 1 }),
-	body('order_items').isArray({ min: 1 })
+	body('order_items').isArray()
 ]
 
 
