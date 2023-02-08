@@ -5,7 +5,7 @@ import Debug from 'debug'
 import prisma from '../prisma'
 import { Request, Response } from 'express'
 import { matchedData, validationResult } from 'express-validator'
-import { getAllOrders, createOrder } from '../services/order_service'
+import { createOrder, getOrderById, getAllOrders } from '../services/order_service'
 import { CreateOrderItemData } from '../types'
 
 // Create a new debug instance
@@ -39,7 +39,7 @@ export const index = async (req: Request, res: Response) => {
  */
 export const show = async (req: Request, res: Response) => {
 
-    const ordertId = Number(req.params.orderId)
+    const orderId = Number(req.params.orderId)
 
 	try {
 

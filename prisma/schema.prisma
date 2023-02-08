@@ -29,7 +29,7 @@ model Order {
     customer_email      String // email
     customer_phone      String?
     order_total         Int // min 1
-    order_items         OrderItem[]
+    items               OrderItem[]
 }
 
 model OrderItem {

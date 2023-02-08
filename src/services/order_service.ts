@@ -21,6 +21,9 @@ export const getOrderById = async (id: number) => {
     return await prisma.order.findUniqueOrThrow({
         where: {
             id
+        },
+        include : {
+            items: true
         }
     })
 }

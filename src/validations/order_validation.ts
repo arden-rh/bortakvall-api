@@ -14,4 +14,11 @@ export const createOrderRules = [
 	body('order_items').isArray()
 ]
 
+/* export const createOrderItemRules = [
+	body('product_id').isInt({ min : 1}),
+	body('qty').isInt({ min : 1}),
+	body('item_price').isInt({ min : 1}),
+	body('item_total').isInt({ min :1})
+] */
+
 
