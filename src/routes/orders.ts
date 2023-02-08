@@ -1,9 +1,9 @@
 /**
- * Router Template
+ * Order Router
  */
 import express from 'express'
-import { body } from 'express-validator'
 import { index, show, store } from '../controllers/order_controller'
+import { createOrderRules } from '../validations/order_validation'
 const router = express.Router()
 
 /**
@@ -19,6 +19,6 @@ router.get('/:orderId', show)
 /**
  * POST /orders
  */
-router.post('/', [], store)
+router.post('/', createOrderRules, store)
 
 export default router

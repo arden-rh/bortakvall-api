@@ -9,7 +9,7 @@ datasource db {
 
 model Product {
     id             Int         @id @default(autoincrement()) @db.UnsignedInt
-    name           String
+    name           String      @unique
     description    String      @db.Text
     price          Int         @db.UnsignedInt // min 1
     on_sale        Boolean?
@@ -22,14 +22,14 @@ model Product {
 model Order {
     id                  Int         @id @default(autoincrement()) @db.UnsignedInt
     customer_first_name String
-    customer_last_anem  String
+    customer_last_name  String
     customer_address    String
     customer_postcode   String
     customer_city       String
     customer_email      String // email
     customer_phone      String?
     order_total         Int // min 1
-    order_items         OrderItem[]
+    items               OrderItem[]
 }
 
 model OrderItem {

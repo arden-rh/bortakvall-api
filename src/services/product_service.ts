@@ -1,27 +1,10 @@
-/** Book Service **/
+/** Product Service **/
 
 import prisma from "../prisma"
 import { CreateProductData } from "../types"
 
 /**
- * Get a single book
- * @param id Book Id
- */
-/* export const getBookById = async (id : number) => {
-
-	return await prisma.book.findUniqueOrThrow({
-		where: {
-			id
-		},
-		include: {
-			authors: true,
-			publisher: true
-		}
-	})
-} */
-
-/**
- * Get all books
+ * Get all products
  */
 export const getAllProducts = async () => {
 
@@ -30,22 +13,23 @@ export const getAllProducts = async () => {
 }
 
 /**
- * Create a book
- *
- * @param data Data to create a new author
+ * Get a single product by id
+ * @param id Product Id
  */
-/* export const createBook = async (data : CreateBookData) => {
-	return await prisma.book.create({data})
-} */
+export const getProductById = async (id : number) => {
+
+	return await prisma.product.findUniqueOrThrow({
+		where: {
+			id
+		}
+	})
+}
 
 /**
- * Delete a book
- * @param id book
+ * Create a product
+ *
+ * @param data Data to create a new product
  */
-/* export const deleteBook = async (id : number) => {
-
-	return await prisma.book.delete({
-		where: { id }
-	})
-
-} */
+export const createProduct = async (data : CreateProductData) => {
+	return await prisma.product.create({data})
+}

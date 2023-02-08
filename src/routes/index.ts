@@ -1,3 +1,7 @@
+/**
+ * Index Router
+ */
+
 import express from "express"
 import products from "./products"
 import orders from "./orders"
@@ -9,8 +13,8 @@ const router = express.Router()
  * GET /
  */
 router.get('/', (req, res) => {
-	res.send({
-		message: "Your server is live",
+	res.status(200).send({
+		message: "Your server is live"
 	})
 })
 
